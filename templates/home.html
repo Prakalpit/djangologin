@@ -14,7 +14,7 @@
 <font face="cursive"> hi {{user.username}}</font>
 <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% else %}
-    Please <a href="{url 'login'}">Log In from here</a>
+    Please <a href="{% url 'login' %}">Log In from here</a>
 {% endif %}
 
 {% endblock  %}
