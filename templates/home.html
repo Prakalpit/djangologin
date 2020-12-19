@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+<html>
+<head>
+    <title>
+        {% block title %}
+        Home Page
+        {% endblock title %}
+    </title>
+</head>
+<body>
+{% block content %}
+{% if user.is_authenticated %}
+<font face="cursive"> hi {{user.username}}</font>
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+    Please <a href="{url 'login'}">Log In from here</a>
+{% endif %}
+
+{% endblock  %}
+</body>
+</html>
