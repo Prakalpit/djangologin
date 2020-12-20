@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gazals {%endblock %}</title>
+</head>
+<body>
+{% block content %}
+So you have logged in.
+<p>ok so you now can <a href="{% url 'logout' %}">Log Out</a></p>
+{% endblock %}
+</body>
+</html>
