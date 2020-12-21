@@ -13,7 +13,7 @@
 {% if user.is_authenticated %}
 <font face="cursive"> hi {{user.username}}
 <p><a href="{% url 'logout' %}">Log Out</a></p>
-<p>You ca view the gazals <a href="{% url 'Gazals' %}">here.</a> </p>
+<p>You can view the gazals <a href="{% url 'Gazals' %}">here.</a> </p>
     {% else %}
     <p> <font face="cursive"> Please <a href="{% url 'login' %}">Log In from here</a><br>
     Not a user yet? <a href="{% url 'signup' %}">Sign-Up</a>
