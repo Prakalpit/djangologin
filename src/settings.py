@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts', #new app added
+    # now adding bootstraps
+    'bootstrap3',
 ]
 
 
@@ -71,6 +73,11 @@ TEMPLATES = [
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 WSGI_APPLICATION = 'src.wsgi.application'
+# Settings for django-bootstrap3
+BOOTSTRAP3 = {
+    'include_jquery': True,
+    }
+
 
 
 # Database

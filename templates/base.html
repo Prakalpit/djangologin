@@ -1,20 +1,19 @@
+{% load bootstrap3 %}
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title> title
+<title> {% block title %}title{% endblock %}
 </title>
 </head>
 <body>
-	
-	<style>
+<style>
 	body {
-	
+
 	margin:0;
 	font-family: 'Work Sans', sans-serif;
 	font-weight: 400;
 }
-
 .container {
 	width: 80%;
 	margin: 0 auto;
@@ -22,7 +21,7 @@
 header{
 	background: #4DB390;
 }
-	
+
 		header::after {
 			content: '';
 			display: table;
@@ -35,47 +34,58 @@ header{
 			margin:0;
 			padding:0;
 			list-style: none;
-			
+
 		}
-		
+
 		nav li {
 	   		display :inline-block;
-			margin-left: 70px; 
+			margin-left: 70px;
 			padding-top:25px;
 			position: relative;
 		}
-		
+
 		nav a {
 			text-decoration: none;
 			text-transform: none;
 			font-size: 17x;
 			color:black;
-			
-		
-		
+
+
+
 		}
-		
+
 		nav a:hover {
 			color:white;
 		}
-		
+
 		nav a::before{
 			content: '';
 			display: block;
 			height:3px;
-			
+
 			background-color: black;
 			position:absolute;
-			
+
 			top: 10%;
 			width:0%;
-			
+
 		transition: : all ease-in-out 120ms;
 		}
 		nav a:hover::before{
 			width: 105%;
 			transition: ease-in-out 200ms;
 		}
+
+		.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #333;
+   color: white;
+   text-align: center;
+}
+
 	</style>
 <header>
 	<div class="container">
@@ -84,8 +94,15 @@ header{
 		
 		<li><a href="{% url 'home' %}">Home</a></li>
 			<li><a href="#">About Me</a></li>
-			<li><a href="#">Gazal</a></li>
-			<li><a href="#">Class</a></li>
+			{% if user.is_authenticated %}
+				<li><a href="{% url 'Ghazals' %}">Ghazal</a></li>
+				<li><a href="#">Unheard Literature</a></li>
+				<li><a href="{% url 'logout' %}">Log-out</a> </li>
+
+			{%else%}
+				<li><a href="{% url 'login' %}">Log-in</a> </li>
+				<li><a href="{% url 'signup' %}">Register</a> </li>
+			{% endif %}
 			<li><a href="#">Contact Me</a></li>
 			
 		</ul>
@@ -93,12 +110,19 @@ header{
 	
 	</div>
 	</header>
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 	{% block content %}
 	{% endblock %}
 
-<hr> 
 
-			<center> © Dr. Ghanashyam Parishramee<br>
- 			created by- Prakalpit Neupane 
-</center>
+<div class="footer">
+  <hr>
+
+			 © Dr. Ghanashyam Parishramee<br>
+ 			created by- Prakalpit Neupane <br>
+
+	<br>
+</div>
+
 </html>
