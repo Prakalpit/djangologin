@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from myliterature import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('ghazals/', TemplateView.as_view(template_name='gazals.html'), name='Ghazals'),
     path('accounts/', include('accounts.urls')), # new
+    path('myliterature/', views.Literature_views, name='mylit'),
 ]

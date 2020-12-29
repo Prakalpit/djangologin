@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts', #new app added
     # now adding bootstraps
     'bootstrap3',
+    'myliterature',#newapp
 ]
 
 

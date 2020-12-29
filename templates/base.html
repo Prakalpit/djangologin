@@ -95,12 +95,15 @@ header{
 		<li><a href="{% url 'home' %}">Home</a></li>
 			<li><a href="#">About Me</a></li>
 			{% if user.is_authenticated %}
-				<li><a href="{% url 'Ghazals' %}">Ghazal</a></li>
-				<li><a href="#">Unheard Literature</a></li>
-				<li><a href="{% url 'logout' %}">Log-out</a> </li>
+
+					<li><a href="{% url 'Ghazals' %}">Ghazal</a></li>
+					<li><a href="#">Unheard Literature</a></li>
+					<li><a href="{% url 'logout' %}">Log-out</a> </li>
+
 
 			{%else%}
-				<li><a href="{% url 'login' %}">Log-in</a> </li>
+
+			<li><a href="{% url 'login' %}">Log-in</a> </li>
 				<li><a href="{% url 'signup' %}">Register</a> </li>
 			{% endif %}
 			<li><a href="#">Contact Me</a></li>
